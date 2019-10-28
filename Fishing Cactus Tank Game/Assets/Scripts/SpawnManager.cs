@@ -10,13 +10,18 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for(int i = 0; i<4; i++)
+        {
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, Random.Range(-spawnRangeZ, spawnRangeZ));
+            Quaternion rotationPos = new Quaternion(0, Random.Range(-180, 180), 0, Random.Range(-180, 180));
+            Instantiate(tankEnnemi, spawnPos, rotationPos);
+        }
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, Random.Range(-spawnRangeZ, spawnRangeZ));
-        Instantiate(tankEnnemi, spawnPos, tankEnnemi.transform.rotation);
+        
     }
 }
